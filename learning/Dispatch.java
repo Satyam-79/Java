@@ -1,10 +1,10 @@
-class showMethod {
+class Parent {
 	void callme() {
 		System.out.println("Parent class invoked");
 	}
 }
 
-class diffMethod extends showMethod {
+class Child extends Parent {
 	void callme() {
 		System.out.println("Child method invoked");
 	}
@@ -12,12 +12,10 @@ class diffMethod extends showMethod {
 
 class Dispatch {
 	public static void main(String args[]) {
-		showMethod obj = new showMethod();
-		diffMethod obj1 = new diffMethod();
-		showMethod obj2;
-		obj2 = obj;
-		obj2.callme();
-		obj2 = obj1;
-		obj2.callme();
+		Parent pt = new Parent();
+		Child ch = new Child();
+		pt.callme();
+		pt = ch;
+		pt.callme();
 	}
 }
